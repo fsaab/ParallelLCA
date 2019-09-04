@@ -1,0 +1,13 @@
+root=app
+calculatorproject=UBUBI-LCA-Calculator-Native 
+echo "compiling c++, for presampling processes..." 
+
+
+mpic++ -pipe  -D_JNI_IMPLEMENTATION_  -m64   -fPIC \
+  /$root/$calculatorproject/src/main/c++/Native/Calculators_Presampling/MontecarloCalculatorMPIMain_Presampled.cpp \
+  -I/$root/external/libs \
+  -I/app/external/libs/boost_1_67_0/ -std=c++11  -O3 -fopenmp -DBOOST_SYSTEM_NO_DEPRECATED \
+  -I/usr/lib/jvm/java-8-oracle/include/  \
+  -I/usr/lib/jvm/java-8-oracle/include/linux/ \
+   -lgsl -lgslcblas -lm -lboost_mpi -lboost_serialization   -o /$root/$calculatorproject/processes/montecarlo
+ 
