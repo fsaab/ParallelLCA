@@ -1,0 +1,1 @@
+LCA calculator using c++ openMP
